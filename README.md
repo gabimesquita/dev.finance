@@ -1,7 +1,7 @@
 # dev.finance 💲
 
 
-<p>Site de controle de finanças.</p>
+<p>Projeto de controle de finanças do curso da Rocketseat.</p>
 
 
 <p>Feito em HTML, CSS e JavaScript.</p> 
