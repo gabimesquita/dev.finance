@@ -4,14 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>de.finance$</title>
+    <title>dev.finance$</title>
 
     <link rel="stylesheet" href="./style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,700;1,100;1,200;1,400&display=swap" rel="stylesheet">
   </head>
   <body>
-
     <header>
       <img src="./assets/logo.svg" alt="Logo Dev Finance">
     </header>
@@ -23,32 +22,33 @@
         <div class="card">
             <h3>
               <span>Entradas</span>
-              <img src="./assets/income.svg" alt="Imagem de entradas">
+              <img src="./assets/income.svg" alt="Image de entradas">
             </h3>
-            <p>R$ 5.000,00</p>
+            <p id="incomeDisplay">R$ 0,00</p>
         </div>
 
         <div class="card">
             <h3>
               <span>Saídas</span>
-              <img src="./assets/expense.svg" alt="Imagem de saídas">
+              <img src="./assets/expense.svg" alt="Image de saídas">
             </h3>
-            <p>R$ 2.000,00</p>
+            <p id="expenseDisplay">R$ 0,00</p>
         </div>
 
         <div class="card total">
             <h3>
               <span>Total</span>
-              <img src="assets/total.svg" alt="Imagem de total">
+              <img src="assets/total.svg" alt="Image de total">
             </h3>
-            <p>R$ 3.000,00</p>
+            <p id="totalDisplay">R$ 0,00</p>
         </div>        
+
       </section>
 
       <section id="transaction">
         <h2 class="sr-only">Transações</h2>
 
-        <a onclick="Modal.open()" href="#"  class="button new">+ Nova Transação</a>
+        <a href="#" onclick="Modal.open()" class="button new">+ Nova Transação</a>       
 
         <table id="data-table">
           <thead>
@@ -59,32 +59,8 @@
               <th></th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td class="description">Luz</td>
-              <td class="expense">- R$ 500,00</td>
-              <td class="date">23/01/2021</td>
-              <td>
-                <img src="./assets/minus.svg" alt="Remover transação">
-              </td>
-            </tr>
-            <tr>
-              <td class="description">Criação Website</td>
-              <td class="income">R$ 5.000,00</td>
-              <td class="date">31/01/2021</td>
-              <td>
-                <img src="./assets/minus.svg" alt="Remover transação">
-              </td>
-            </tr>
-            <tr>
-              <td class="description">Internet</td>
-              <td class="expense">- R$ 200,00</td>
-              <td class="date">15/01/2021</td>
-              <td>
-                <img src="./assets/minus.svg" alt="Remover transação">
-              </td>
-            </tr>
-          </tbody>
+            <tbody>
+            </tbody>
         </table>
       </section>
     </main>
@@ -93,20 +69,23 @@
       <div class="modal">        
          <div id="form">
            <h2>Nova Transação</h2>
-           <form action="">
+           <form action="" onsubmit="Form.submit(event)">
               <div class="input-group">
                 <label class="sr-only" for="description">Descrição</label>
                 <input type="text" id="description" name="description" placeholder="Descrição"/>
               </div>
+
               <div class="input-group">
                 <label class="sr-only" for="amount">Valor</label>
                 <input type="number" step="0.01" id="amount" name="amount" placeholder="0,00"/>
                 <small class="help">Use o sinal - (negativo) para despesas e, (vírgula) para separar casas decimais</small>
               </div>
+
               <div class="input-group">
                 <label class="sr-only" for="date">Data</label>
-                <input type="date" step="0.01" id="date" name="date"/>                
+                <input type="date" id="date" name="date"/>                
               </div>
+
               <div class="input-group actions">
                 <a  onclick="Modal.close()" href="#" class="button cancel">Cancelar</a>
                 <button>Salvar</button>
@@ -120,18 +99,7 @@
       <p>dev.finance$</p>
     </footer>
 
-    <script>
-      const Modal = {
-        open(){
-            document.querySelector('.modal-overlay')
-            .classList.add('active')
-        },
-        close(){
-             document.querySelector('.modal-overlay')
-            .classList.remove('active')
-        }
-      }
-    </script>
+    <script src="./script.js"></script>          
 
     </body>
 </html>
